@@ -31,5 +31,25 @@ A packaged component for testing
   import { Button , Input } from 'my-lib'
   Vue.use(Button)
   Vue.use(Input)
+  
+  // babel.config.js
+  module.exports = {
+    presets: ["@babel/preset-env"],
+    plugins: [
+      [
+        "component",
+        {
+          libDir: "lib",
+          root: 'my-lib',
+          libraryName: "my-lib",
+          styleLibrary: {
+            name: "lib-style",
+            base: false,
+          },
+        },
+        "my-lib"
+      ],
+    ],
+  };
 
 ```
